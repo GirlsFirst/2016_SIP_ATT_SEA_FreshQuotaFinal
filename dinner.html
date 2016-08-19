@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Fresh Quota</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="freshquota.js"></script>
+</head>
+<body>
+<script>
+	$( document ).ready(function() {
+		var userId = getCurrentUser();
+		if (userId != null)
+		{
+			var userData = getCurrentUserData();
+			showLunch(userData);
+		}
+		else
+		{
+			alert('Please Login!');
+			//window.location = 'login.html';
+		}
+	});
+</script>
+
+<center><img src ="images/banner.jpg" alt="image" height="147" width="1366"></center>
+<style>
+  body{
+    background-color: #F0FFFF;
+}
+</style>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="account.html">
+	  Profile</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="dinner.html">Dinner</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Track Your Meals <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="breakfast.html">Breakfast</a></li>
+          <li><a href="lunch.html">Lunch</a></li>
+          <li><a href="dinner.html">Dinner</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Recomended <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="restuarants.html">Restaurants</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
+		</ul>
+		<li><a href="BodyMachine.html">How Your Body Works</a></li>
+    <!--<ul class="nav navbar-nav navbar-right">-->
+      <li><a href="FreshQuota.html"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+    <!--</ul>-->
+  </div>
+</nav>
+<div class="container">
+  <center><h1>Dinner</h1></center>
+  <center><p>Log Your Dinner Here</p></center>
+ <div class="form-group">
+      <label class="control-label col-sm-2" for="dinner">Food Item One:</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="dfoodItem1" placeholder="Enter Food Item">
+      </div>
+    </div>
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="dinner">Food Item Two:</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="dfoodItem2" placeholder="Enter Food Item">
+      </div>
+    </div>
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="dinner">Food Item Three:</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="dfoodItem3" placeholder="Enter Food Item ">
+      </div>
+    </div>
+	<div class="form-group">
+      <label class="control-label col-sm-2" for="dinner">Food Item Four:</label>
+      <div class="col-sm-10">
+        <input class="form-control" id="dfoodItem4" placeholder="Enter Food Item">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="dinner">Food Item Five:</label>
+      <div class="col-sm-10">          
+        <input class="form-control" id="dfoodItem5" placeholder="Enter Food Item">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+       <button id="save" onclick="saveDinnerData()" >Save</button>
+      </div>
+</div>
+
+</body>
+</html>

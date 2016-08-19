@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<!---IMPORT BOOTSTRAP-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<script type="text/javascript" src="freshquota.js"></script>
+<!--<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">-->
+<!--<rel="stylesheet" href="safety.css">-->
+<head>
+  <title>Fresh Quota</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!---IMPORT BOOTSTRAP-->
+  <!---SET STYLE-->
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <title>Restaurants</title> 
+  <!-- <style>
+  body,h1 {font-family: "Montserrat", sans-serif; font-weight: regular; text-align: center; w3-opaity}
+  </style> -->
+ <!---DEFINE GOOGLE MAPS-->
+  <script src="http://maps.google.com/maps/api/js?sensor=false" 
+          type="text/javascript"></script>
+</head>
+<body>
+<center><img src ="images/banner.jpg" alt="image" height="147" width="1366"></center>
+<style>
+  body{
+    background-color: #F0FFFF;
+}
+</style>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="account.html">Profile</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="restuarants.html">Recomended Restaurants </a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Track Your Meals <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="breakfast.html">Breakfast</a></li>
+          <li><a href="lunch.html">Lunch</a></li>
+          <li><a href="dinner.html">Dinner</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Recomended <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="restaurants.html">Restaurants</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
+		</ul>
+    <li><a href="BodyMachine.html">How Your Body Works</a></li>
+    <!--<ul class="nav navbar-nav navbar-right">-->
+      <li><a href="FreshQuota.html"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+    <!--</ul>-->
+  </div>
+</nav>
+ 
+ <style>
+div.img {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+	background-color: white;
+}
+
+div.img:hover {
+    border: 1px solid #777;
+}
+
+div.img img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+</style>
+
+<div class="img">
+  <a target="_blank" href="http://www.livehealthyeatorganic.com">
+    <img src="images/hugo.jpg" alt="1" width="400" height="600">
+  </a>
+  <div id="map1" style="width: 100%; height: 200px;"></div>
+  <!--locations-->
+  <script type="text/javascript">
+    var locations1 = [
+      ["Hugo's 8110 164th Ave NE, Redmond, WA 98052", 47.675701, -122.121280, 1 ],
+
+    ];
+  <!---set map to -->
+    var map1 = new google.maps.Map(document.getElementById('map1'), {
+      zoom: 7,
+      center: new google.maps.LatLng(47.6149943, -122.4759898),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+  <!---iterate through locations1-->
+    var marker1, i;
+    for (i = 0; i < locations1.length; i++) {  
+      marker1 = new google.maps.Marker({
+        position: new google.maps.LatLng(locations1[i][1], locations1[i][2]),
+        map: map1
+      });
+      google.maps.event.addListener(marker1, 'click', (function(marker1, i) {
+        return function() {
+          infowindow.setContent(locations1[i][0]);
+          infowindow.open(map1, marker1);
+        }
+      })(marker1, i));
+    }
+  </script> 
+  <div class="desc"><b>Hugo's:</b> Organic resturant with a juice bar, offers vegan and gluten free options. <br>8110 164th Ave NE, Redmond, WA 98052</div>
+</div>
+
+<div class="img">
+  <a target="_blank" href="http://teapotvegetarianhouse.com/">
+    <img src="images/teapot.jpg" alt="2" width="310" height="245">
+  </a>
+   <div id="map2" style="width: 100%; height: 200px;"></div>
+  <!--locations-->
+  <script type="text/javascript">
+    var locations2 = [
+      ["Teapot Vegetarian House 15230 NE 24th St Ste H, Redmond, WA 98052", 47.632071, -122.136342, 1 ],
+
+    ];
+  <!---set map to -->
+    var map2 = new google.maps.Map(document.getElementById('map2'), {
+      zoom: 7,
+      center: new google.maps.LatLng(47.632071, -122.136342),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+  <!---iterate through locations2-->
+    var marker2, i;
+    for (i = 0; i < locations2.length; i++) {  
+      marker2 = new google.maps.Marker({
+        position: new google.maps.LatLng(locations2[i][1], locations2[i][2]),
+        map: map2
+      });
+      google.maps.event.addListener(marker2, 'click', (function(marker2, i) {
+        return function() {
+          infowindow.setContent(locations2[i][0]);
+          infowindow.open(map2, marker2);
+        }
+      })(marker2, i));
+    }
+  </script>
+  <div class="desc"><b>Teapot Vegetarian House:</b> Health minded cafe offering a full menu of Pan-Asian dishes made a vegan including desserts. <br>15230 NE 24th St Ste H, Redmond, WA 98052</div>
+</div>
+
+<div class="img">
+  <a target="_blank" href="http://chacocanyoncafe.com/">
+    <img src="images/chaco.jpg" alt="3" width="250" height="250">
+  </a>
+   <div id="map3" style="width: 100%; height: 200px;"></div>
+  <!--locations-->
+  <script type="text/javascript">
+    var locations3 = [
+      ["Chaco Canyon Cafe 4757 12th Ave NE, Seattle, WA 98105", 47.664746,-122.315545, 1 ],
+      ["Chaco Canyon Cafe 8404 Greenwood Ave N, Seattle, WA 98103", 47.690096, -122.354994, 2],
+      ["Chaco Canyon Cafe 3770 SW Alaska St, Seattle, WA 98126", 47.561329, -122.379892, 3],
+    ];
+  <!---set map to -->
+    var map3 = new google.maps.Map(document.getElementById('map3'), {
+      zoom: 7,
+      center: new google.maps.LatLng(47.6149943, -122.4759898),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+  <!---iterate through locations3-->
+    var marker3, i;
+    for (i = 0; i < locations3.length; i++) {  
+      marker3 = new google.maps.Marker({
+        position: new google.maps.LatLng(locations3[i][1], locations3[i][2]),
+        map: map3
+      });
+      google.maps.event.addListener(marker3, 'click', (function(marker3, i) {
+        return function() {
+          infowindow.setContent(locations3[i][0]);
+          infowindow.open(map3, marker3);
+        }
+      })(marker3, i));
+    }
+  </script>
+  <div class="desc"><b>Chaco Canyon Organic Cafe:</b> Cafe serving vegan, gluten free, organic food catered to all of the community.<br> 4757 12th Ave NE, Seattle, WA 98105; 8404 Greenwood Ave N, Seattle, WA 98103, 3770 SW Alaska St, Seattle, WA 98126</div>
+</div>
+
+<div class="img">
+  <a target="_blank" href="http://www.palacemediterranean.com/">
+    <img src="images/palace.jpg" alt="4" width="1000" height="750">
+  </a>
+   <div id="map4" style="width: 100%; height: 200px;"></div>
+  <!--locations-->
+  <script type="text/javascript">
+    var locations4 = [
+      ["Mediterranean Palace 430 E 25th St, Tacoma, WA 98421", 47.239538, -122.428431, 1 ],
+
+    ];
+  <!---set map to -->
+    var map4 = new google.maps.Map(document.getElementById('map4'), {
+      zoom: 7,
+      center: new google.maps.LatLng(47.6149943, -122.4759898),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+  <!---iterate through locations4-->
+    var marker4, i;
+    for (i = 0; i < locations4.length; i++) {  
+      marker4 = new google.maps.Marker({
+        position: new google.maps.LatLng(locations4[i][1], locations4[i][2]),
+        map: map4
+      });
+      google.maps.event.addListener(marker4, 'click', (function(marker4, i) {
+        return function() {
+          infowindow.setContent(locations4[i][0]);
+          infowindow.open(map4, marker4);
+        }
+      })(marker4, i));
+    }
+  </script>
+  <div class="desc"><b>Mediterranean Palace:</b> Greek Cuisine. Using only the finest fresh ingredients, and above all put into the food the time and effort needed to ensure that it not only taste great but is great for you as well. 430 E 25th St, Tacoma, WA 98421</div>
+</div>
+<div class="img">
+  <a target="_blank" href="http://www.sorrelrestaurant.com/">
+    <img src="images/sorrel.jpg" alt="5" width="1000" height="1000">
+  </a>
+   <div id="map5" style="width: 100%; height: 200px;"></div>
+  <!--locations-->
+  <script type="text/javascript">
+    var locations5 = [
+      ["Sorrel Restaurant 493 3rd St, San Francisco, CA 94107", 37.781643, -122.395854, 1 ],
+
+    ];
+  <!---set map to -->
+    var map5 = new google.maps.Map(document.getElementById('map5'), {
+      zoom: 7,
+      center: new google.maps.LatLng(37.781643, -122.395854),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+  <!---iterate through locations5-->
+    var marker5, i;
+    for (i = 0; i < locations5.length; i++) {  
+      marker5 = new google.maps.Marker({
+        position: new google.maps.LatLng(locations5[i][1], locations5[i][2]),
+        map: map5
+      });
+      google.maps.event.addListener(marker5, 'click', (function(marker5, i) {
+        return function() {
+          infowindow.setContent(locations5[i][0]);
+          infowindow.open(map5, marker5);
+        }
+      })(marker5, i));
+       }
+  </script>
+  <div class="desc"><b>Sorrel:</b> Unique experience that offers local-Californian inspired cuisine with authentic & vibrant Italian influences. We believe in only working with the most superior, freshest, organic & local ingredients that the Bay Area farmers markets have to offer. San Francisco CA.</div>
+</div>
+<div class="img">
+  <a target="_blank" href="http://gracias-madre.com/index.html">
+    <img src="images/gracias.jpg" alt="6" width="1000" height="667">
+  </a>
+   <div id="map6" style="width: 100%; height: 200px;"></div>
+  <!--locations-->
+  <script type="text/javascript">
+    var locations6 = [
+      ["Gracias Madre 2211 Mission St, San Francisco, CA 94110", 37.761572, -122.419080, 1 ],
+
+    ];
+  <!---set map to -->
+    var map6 = new google.maps.Map(document.getElementById('map6'), {
+      zoom: 7,
+      center: new google.maps.LatLng(37.761572, -122.419080),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+  <!---iterate through locations6-->
+    var marker6, i;
+    for (i = 0; i < locations6.length; i++) {  
+      marker6 = new google.maps.Marker({
+        position: new google.maps.LatLng(locations6[i][1], locations6[i][2]),
+        map: map6
+      });
+      google.maps.event.addListener(marker6, 'click', (function(marker6, i) {
+        return function() {
+          infowindow.setContent(locations6[i][0]);
+          infowindow.open(map6, marker6);
+        }
+      })(marker6, i));
+       }
+  </script>
+  <div class="desc"><b>Gracias Madre:</b> Health oriented, love for food and community, they recognize the importance of sustainability and of buying and selling locally grown organic food. San Francisco CA.</div>
+</div>
+<div class="img">
+  <a target="_blank" href="http://www.nativefoods.com/">
+    <img src="images/native.jpg" alt="7" width="1000" height="657">
+  </a>
+  <div id="map7" style="width: 100%; height: 200px;"></div>
+  <!--locations-->
+  <script type="text/javascript">
+    var locations7 = [
+      ["Native Foods Cafe 7237 SW Bridgeport Rd, Tigard, OR 97224 ", 45.395554, -122.750593, 1 ],
+
+    ];
+  <!---set map to -->
+    var map7 = new google.maps.Map(document.getElementById('map7'), {
+      zoom: 7,
+      center: new google.maps.LatLng(45.395554, -122.750593),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+  <!---iterate through locations7-->
+    var marker7, i;
+    for (i = 0; i < locations7.length; i++) {  
+      marker7 = new google.maps.Marker({
+        position: new google.maps.LatLng(locations7[i][1], locations7[i][2]),
+        map: map7
+      });
+      google.maps.event.addListener(marker7, 'click', (function(marker7, i) {
+        return function() {
+          infowindow.setContent(locations7[i][0]);
+          infowindow.open(map7, marker7);
+        }
+      })(marker7, i));
+       }
+  </script>
+  <div class="desc"><b>Native Foods Cafe:</b> Today, Native Foods Café has grown to become America’s premier fast-casual vegan restaurant group spanning coast to coast. Serving made-from-scratch, chef-crafted cuisine to thousands of food lovers every day. Los Angeles CA, Orange County CA, San Diego CA, Palm Springs, Colorado, Oregon, Chicago IL.</div>
+</div>
+<!--<div class="container">
+  <h3>Recomended Restaurants</h3>-->
+  
+</div>
+
+</body>
+</html>

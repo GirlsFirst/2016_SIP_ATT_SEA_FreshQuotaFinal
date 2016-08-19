@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Fresh Quota</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="freshquota.js"></script>
+</head>
+<body>
+<script>
+alert('Welcome to your account profile ' + getCurrentUser() + "!") ;
+$( document ).ready(function() {
+		var userId = getCurrentUser();
+		if (userId != null)
+		{
+			var userData = getCurrentUserData();
+			showBreakfast(userData);
+			showLunch(userData);
+			showDinner(userData);
+		}
+		else
+		{
+			alert('Please Login!');
+			//window.location = 'login.html';
+		}
+	});
+</script>
+
+<center><img src ="images/banner.jpg" alt="image" height="147" width="1366"></center>
+<style>
+  body{
+    background-color: #F0FFFF;
+}
+</style>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="FreshQuota.html">Fresh Quota</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="account.html">Your Profile</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Track Your Meals <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="breakfast.html">Breakfast</a></li>
+          <li><a href="lunch.html">Lunch</a></li>
+          <li><a href="dinner.html">Dinner</a></li>
+        </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Recomended <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="restuarants.html">Restaurants</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
+		</ul>
+		<li><a href="BodyMachine.html">How Your Body Works</a></li>
+    <!--<ul class="nav navbar-nav navbar-right">-->
+      <li><a href="FreshQuota.html"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+    <!--</ul>-->
+  </div>
+</nav>
+<div class="container">
+  <center><h1>Profile</h1></center>
+  <center><p>Welcome To Your Profile, Start Tracking!</p></center>
+  <img src="images/efron.png" alt="profile" height="250" width="250">
+  <!--<div class="form-group">
+	  <label class="control-label col-sm-2" for="goals"></label>
+      <div class="col-sm-10">
+        <input class="form-control" id="userGoals" placeholder="Enter Your Goals">
+      </div>-->
+<textarea name="bio" rows="3" cols="110">
+Goals: Eat more protein this week
+</textarea>
+<center><h1>Today's Tracked Meals:</h1></center>
+<center><h3>Breakfast</h3></center>
+<div class="form-group">
+      <label class="control-label col-sm-2" for="breakfast"></label>
+      <div class="col-sm-10">
+        <input class="form-control" id="bfoodItem1" placeholder="">
+      </div>
+    </div>
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="breakfast"></label>
+      <div class="col-sm-10">
+        <input class="form-control" id="bfoodItem2" placeholder="">
+      </div>
+    </div>
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="breakfast"></label>
+      <div class="col-sm-10">
+        <input class="form-control" id="bfoodItem3" placeholder="">
+      </div>
+    </div>
+	<div class="form-group">
+      <label class="control-label col-sm-2" for="breakfast"></label>
+      <div class="col-sm-10">
+        <input class="form-control" id="bfoodItem4" placeholder="">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="breakfast"></label>
+      <div class="col-sm-10">          
+        <input class="form-control" id="bfoodItem5" placeholder="">
+      </div>
+    </div>
+</div>
+<div class="container">
+<center><h3>Lunch</h3></center>
+<div class="form-group">
+      <label class="control-label col-sm-2" for="lunch"></label>
+      <div class="col-sm-10">
+        <input class="form-control" id="lfoodItem1" placeholder="">
+      </div>
+    </div>
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="lunch"></label>
+      <div class="col-sm-10">
+        <input class="form-control" id="lfoodItem2" placeholder="">
+      </div>
+    </div>
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="lunch"></label>
+      <div class="col-sm-10">
+        <input class="form-control" id="lfoodItem3" placeholder="">
+      </div>
+    </div>
+	<div class="form-group">
+      <label class="control-label col-sm-2" for="lunch"></label>
+      <div class="col-sm-10">
+        <input class="form-control" id="lfoodItem4" placeholder="">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="lunch"></label>
+      <div class="col-sm-10">          
+        <input class="form-control" id="lfoodItem5" placeholder="">
+      </div>
+    </div>
+<div class="container">
+<center><h3>Dinner</h3></center>
+<div class="form-group">
+      <label class="control-label col-sm-2" for="dinner"></label>
+      <div class="col-sm-10">
+        <input class="form-control" id="dfoodItem1" placeholder="">
+      </div>
+    </div>
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="dinner"></label>
+      <div class="col-sm-10">
+        <input class="form-control" id="dfoodItem2" placeholder="">
+      </div>
+    </div>
+	<div class="form-group">
+	  <label class="control-label col-sm-2" for="dinner"></label>
+      <div class="col-sm-10">
+        <input class="form-control" id="dfoodItem3" placeholder="">
+      </div>
+    </div>
+	<div class="form-group">
+      <label class="control-label col-sm-2" for="dinner"></label>
+      <div class="col-sm-10">
+        <input class="form-control" id="dfoodItem4" placeholder="">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="dinner"></label>
+      <div class="col-sm-10">          
+        <input class="form-control" id="dfoodItem5" placeholder="">
+      </div>
+    </div>
+</body>
+</html>

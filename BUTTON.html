@@ -1,0 +1,17 @@
+<script>
+function clickCounter() {
+    if(typeof(Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount)+5;
+        } 
+		else {
+            localStorage.clickcount = 1;
+        }
+        document.getElementById("result").innerHTML = "Healthy Points" + localStorage.clickcount + " time(s).";
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+    }
+}
+</script>
+<p><button onclick="clickCounter()" type="button">Redeem Healthy Points</button></p>
+<div id="result"></div>
